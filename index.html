@@ -178,8 +178,8 @@
   .hero-media{position:relative;height:min(92vh, 860px);min-height:580px;overflow:hidden;background:#0B0C0F;}
   .hero-media .parallax-wrap{position:absolute;inset:-8% -4%;}
   .hero-photo{width:100%;height:100%;object-fit:cover;object-position:50% 62%;display:block;
-    animation:kenburns 28s ease-in-out infinite alternate;will-change:transform;}
-  @keyframes kenburns{ from{transform:scale(1);} to{transform:scale(1.1);} }
+    animation:kenburns 15s ease-in-out infinite alternate;will-change:transform;}
+  @keyframes kenburns{ from{transform:scale(1);} to{transform:scale(1.16);} }
   @media (prefers-reduced-motion: reduce){ .hero-photo{animation:none;} }
   .hero-scrim{position:absolute;inset:0;
     background:linear-gradient(180deg, rgba(7,9,15,.18) 0%, rgba(7,9,15,.28) 42%, rgba(7,9,15,.92) 100%);}
@@ -240,8 +240,22 @@
 
   /* ============ HOW IT WORKS ============ */
   .steps-wrap{position:relative;}
-  .steps-line-svg{width:100%;height:56px;display:block;}
-  @media (max-width:900px){ .steps-line-svg{display:none;} }
+  .diagram-svg{width:100%;height:auto;display:block;margin-bottom:var(--sp-8);}
+  @media (max-width:900px){ .diagram-svg{display:none;} }
+  .diagram-svg text{font-family:var(--font-mono);user-select:none;}
+  .node-badge{fill:var(--surface);stroke:var(--line-strong);stroke-width:1.5;transition:fill .3s,stroke .3s;}
+  .node-icon{stroke:var(--ink-soft);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s;}
+  .node-num{fill:var(--ink-faint);font-size:11px;letter-spacing:.04em;transition:fill .3s;}
+  .node-label{fill:var(--ink-soft);font-size:11.5px;transition:fill .3s;}
+  .diagram-node{cursor:pointer;}
+  .diagram-node:focus-visible .node-badge{outline:2px solid var(--accent);outline-offset:2px;}
+  .diagram-node:hover .node-badge{stroke:var(--accent);}
+  .diagram-node.is-active .node-badge{stroke:var(--accent);fill:var(--accent-soft);}
+  .diagram-node.is-active .node-icon{stroke:var(--accent);}
+  .diagram-node.is-active .node-num{fill:var(--accent);}
+  .diagram-node.is-active .node-label{fill:var(--ink);font-weight:600;}
+  .source-icon{stroke:var(--ink-faint);fill:none;stroke-width:1.4;}
+  .source-label{fill:var(--ink-faint);font-size:10px;}
   .steps-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-4);margin-top:var(--sp-4);}
   @media (max-width:900px){ .steps-grid{grid-template-columns:1fr;gap:0;} }
   .step-card{
@@ -375,16 +389,7 @@
   .pt-label .l{color:#7C8291;margin-top:2px;display:block;}
 
   /* ============ PRICING ============ */
-  #pricing{position:relative;overflow:hidden;}
-  .pricing-glow{
-    position:absolute;top:-10%;right:-8%;width:60%;height:130%;
-    background-image:var(--box-glow-img);background-size:cover;background-position:center;
-    filter:blur(70px) saturate(1.15);opacity:.28;
-    -webkit-mask-image:radial-gradient(ellipse at center, #000 0%, transparent 72%);
-    mask-image:radial-gradient(ellipse at center, #000 0%, transparent 72%);
-    pointer-events:none;z-index:0;
-  }
-  #pricing .container{position:relative;z-index:1;}
+  #pricing{position:relative;}
   .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8);}
   @media (max-width:760px){ .price-grid{grid-template-columns:1fr;} }
   .price-card{
@@ -393,10 +398,7 @@
     transition:transform .35s var(--ease-out), border-color .3s;
   }
   .price-card:hover{transform:translateY(-4px);border-color:var(--line-strong);}
-  .price-card.is-featured{border-color:var(--accent);position:relative;}
   .price-kicker{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);}
-  .price-card.is-featured .price-kicker{color:var(--accent);}
-  .price-name{font-size:var(--fs-h3);margin-top:var(--sp-2);}
   .price-num{font-family:var(--font-mono);font-weight:700;font-size:2.6rem;margin-top:var(--sp-4);font-variant-numeric:tabular-nums;}
   .price-num sup{font-size:1rem;font-weight:600;margin-left:4px;}
   .price-feats{list-style:none;margin:var(--sp-6) 0 0;padding:0;flex:1;}
@@ -412,6 +414,26 @@
     display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);flex-wrap:wrap;
   }
   .pro-link p{font-size:var(--fs-sm);color:var(--ink-soft);}
+
+  .price-grid-single{display:flex;justify-content:center;}
+  .price-card-single{
+    max-width:920px;width:100%;padding:0;overflow:hidden;
+    display:grid;grid-template-columns:1fr 1.35fr;
+  }
+  @media (max-width:700px){ .price-card-single{grid-template-columns:1fr;} }
+  .price-visual{
+    position:relative;min-height:340px;
+    background-image:var(--box-glow-img);background-size:cover;background-position:52% 45%;
+  }
+  .price-visual::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(5,6,10,.82) 0%, rgba(5,6,10,.05) 45%, transparent 70%);
+  }
+  .price-visual .price-visual-cap{
+    position:absolute;left:var(--sp-5);bottom:var(--sp-5);right:var(--sp-5);z-index:1;
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.03em;color:rgba(255,255,255,.85);
+  }
+  .price-card-body{padding:var(--sp-8);}
 
   /* ============ FAQ ============ */
   .faq-list{border-top:1px solid var(--line);}
@@ -471,8 +493,11 @@
   .field input:focus, .field select:focus{outline:none;border-color:var(--accent);}
   .field-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);}
   @media (max-width:480px){ .field-row{grid-template-columns:1fr;} }
-  .kit-choice{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);margin-bottom:var(--sp-5);}
-  @media (max-width:480px){ .kit-choice{grid-template-columns:1fr;} }
+  .kit-summary{
+    font-size:var(--fs-sm);color:var(--ink-soft);margin-bottom:var(--sp-5);
+    padding:var(--sp-3) var(--sp-4);background:var(--accent-soft);border:1px solid var(--accent-soft-line);border-radius:var(--radius-sm);
+  }
+  .kit-summary strong{color:var(--accent);font-family:var(--font-mono);}
   .kit-option{
     border:1px solid var(--line-strong);border-radius:var(--radius-sm);padding:var(--sp-4);cursor:pointer;
     transition:border-color .2s, background .2s;
@@ -494,8 +519,23 @@
   .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
 
   ::selection{background:var(--accent);color:var(--accent-ink);}
+
+  #to-top{
+    position:fixed;right:var(--sp-6);bottom:var(--sp-6);z-index:400;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--ink);color:var(--bg);border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transform:translateY(12px);
+    transition:opacity .3s var(--ease-out), transform .3s var(--ease-out), background .25s;
+    box-shadow:0 10px 24px -8px rgba(0,0,0,.35);
+  }
+  #to-top.is-visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+  #to-top:hover{background:var(--accent);}
+  #to-top:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  @media (max-width:640px){ #to-top{right:var(--sp-4);bottom:var(--sp-4);width:42px;height:42px;} }
 </style>
 
+<button id="to-top" aria-label="Наверх страницы"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <div id="cursor-dot" aria-hidden="true"></div>
 <div id="cursor-ring" aria-hidden="true"></div>
 
@@ -579,10 +619,87 @@
       </div>
 
       <div class="steps-wrap reveal">
-        <svg class="steps-line-svg" viewBox="0 0 1000 56" preserveAspectRatio="none" aria-hidden="true">
-          <line x1="100" y1="28" x2="900" y2="28" stroke="var(--line-strong)" stroke-width="1"/>
-          <line id="steps-progress-line" x1="100" y1="28" x2="100" y2="28" stroke="var(--accent)" stroke-width="1.5"/>
-          <circle id="steps-droplet" cx="100" cy="28" r="5" fill="var(--accent)"/>
+        <svg class="diagram-svg" viewBox="0 0 1000 165" role="img" aria-label="Схема: конденсат проходит поплавковую камеру, датчик и помпу, трубку-испаритель, гидрофильный материал и испаряется на теплообменнике">
+          <!-- source: indoor unit (context only, not a system step) -->
+          <g transform="translate(28,70)">
+            <rect class="source-icon" x="-16" y="-11" width="32" height="18" rx="2"/>
+            <line class="source-icon" x1="-10" y1="-4" x2="6" y2="-4"/>
+            <line class="source-icon" x1="-10" y1="1" x2="2" y2="1"/>
+            <path class="source-icon" d="M-2,7 q3,6 0,11" stroke-dasharray="2 2"/>
+          </g>
+          <text class="source-label" x="28" y="105" text-anchor="middle">внутренний блок</text>
+          <line x1="46" y1="70" x2="98" y2="70" stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="3 3"/>
+
+          <line x1="100" y1="70" x2="900" y2="70" stroke="var(--line-strong)" stroke-width="1"/>
+          <line id="steps-progress-line" x1="100" y1="70" x2="100" y2="70" stroke="var(--accent)" stroke-width="1.5"/>
+          <circle id="steps-droplet" cx="100" cy="70" r="4.5" fill="var(--accent)"/>
+
+          <!-- node 1: float chamber -->
+          <g class="diagram-node" data-step="0" tabindex="0" role="button" aria-label="Шаг 01 — поплавковая камера">
+            <circle class="node-badge" cx="100" cy="70" r="30"/>
+            <g class="node-icon" transform="translate(100,70)">
+              <rect x="-12" y="-13" width="24" height="26" rx="3"/>
+              <path d="M-12,3 Q-6,-1 0,3 T12,3"/>
+              <circle cx="0" cy="-3" r="2.6"/>
+            </g>
+            <text class="node-num" x="100" y="22" text-anchor="middle">01</text>
+            <text class="node-label" x="100" y="132" text-anchor="middle">Поплавковая камера</text>
+          </g>
+
+          <!-- node 2: sensor + pump -->
+          <g class="diagram-node" data-step="1" tabindex="0" role="button" aria-label="Шаг 02 — датчик включает помпу">
+            <circle class="node-badge" cx="300" cy="70" r="30"/>
+            <g class="node-icon" transform="translate(300,70)">
+              <circle r="13"/>
+              <path d="M-4,-6 L-4,6 L6,0 Z"/>
+            </g>
+            <text class="node-num" x="300" y="22" text-anchor="middle">02</text>
+            <text class="node-label" x="300" y="132" text-anchor="middle">Датчик и помпа</text>
+          </g>
+
+          <!-- node 3: evaporator tube -->
+          <g class="diagram-node" data-step="2" tabindex="0" role="button" aria-label="Шаг 03 — трубка-испаритель">
+            <circle class="node-badge" cx="500" cy="70" r="30"/>
+            <g class="node-icon" transform="translate(500,70)">
+              <rect x="-15" y="-5" width="30" height="8" rx="4"/>
+              <line x1="-9" y1="4" x2="-9" y2="10"/>
+              <line x1="0" y1="4" x2="0" y2="10"/>
+              <line x1="9" y1="4" x2="9" y2="10"/>
+            </g>
+            <text class="node-num" x="500" y="22" text-anchor="middle">03</text>
+            <text class="node-label" x="500" y="132" text-anchor="middle">Трубка-испаритель</text>
+          </g>
+
+          <!-- node 4: hydrophilic material -->
+          <g class="diagram-node" data-step="3" tabindex="0" role="button" aria-label="Шаг 04 — гидрофильный материал">
+            <circle class="node-badge" cx="700" cy="70" r="30"/>
+            <g class="node-icon" transform="translate(700,70)">
+              <rect x="-14" y="-9" width="28" height="18" rx="2"/>
+              <line x1="-10" y1="-9" x2="-14" y2="-3"/>
+              <line x1="-2" y1="-9" x2="-10" y2="9"/>
+              <line x1="6" y1="-9" x2="-2" y2="9"/>
+              <line x1="14" y1="-9" x2="6" y2="9"/>
+              <line x1="14" y1="-1" x2="10" y2="9"/>
+            </g>
+            <text class="node-num" x="700" y="22" text-anchor="middle">04</text>
+            <text class="node-label" x="700" y="132" text-anchor="middle">Гидрофильный слой</text>
+          </g>
+
+          <!-- node 5: heat exchanger + evaporation -->
+          <g class="diagram-node" data-step="4" tabindex="0" role="button" aria-label="Шаг 05 — испарение на теплообменнике">
+            <circle class="node-badge" cx="900" cy="70" r="30"/>
+            <g class="node-icon" transform="translate(900,70)">
+              <rect x="-13" y="-5" width="26" height="15" rx="1"/>
+              <line x1="-8" y1="-5" x2="-8" y2="10"/>
+              <line x1="-2.5" y1="-5" x2="-2.5" y2="10"/>
+              <line x1="3" y1="-5" x2="3" y2="10"/>
+              <line x1="8.5" y1="-5" x2="8.5" y2="10"/>
+              <path d="M-6,-9 q2,-4 0,-8" stroke-dasharray="1.5 2"/>
+              <path d="M2,-9 q2,-4 0,-8" stroke-dasharray="1.5 2"/>
+            </g>
+            <text class="node-num" x="900" y="22" text-anchor="middle">05</text>
+            <text class="node-label" x="900" y="132" text-anchor="middle">Испарение</text>
+          </g>
         </svg>
         <div class="steps-grid">
           <div class="step-card" data-step="0">
@@ -844,33 +961,23 @@
         <div class="eyebrow">08 / Стоимость</div>
         <h2>Выберите комплект</h2>
       </div>
-      <div class="price-grid reveal">
-        <div class="price-card">
-          <div class="price-kicker">Базовый</div>
-          <div class="price-name">Комплект «Конденсат»</div>
-          <div class="price-num">14 990 <sup>₽</sup></div>
-          <ul class="price-feats">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Основная и капиллярные трубки</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Провода для подключения</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Гидрофильный материал</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Рабочий диапазон 0…+50&nbsp;°C</li>
-          </ul>
-          <button class="btn btn-primary js-open-modal" data-kit="base">Заказать базовый</button>
-        </div>
-        <div class="price-card is-featured">
-          <div class="price-kicker">С зимней комплектацией</div>
-          <div class="price-name">Комплект «Конденсат» Зима</div>
-          <div class="price-num">16 990 <sup>₽</sup></div>
-          <ul class="price-feats">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Всё из базового комплекта</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Греющие кабели и изоляция</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Рабочий диапазон −35…+50&nbsp;°C</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Вес не более 1,5&nbsp;кг</li>
-          </ul>
-          <button class="btn btn-primary js-open-modal" data-kit="winter">Заказать с зимним комплектом</button>
+      <div class="price-grid price-grid-single reveal">
+        <div class="price-card price-card-single">
+          <div class="price-visual"><span class="price-visual-cap">Концепт упаковки — дизайн уточняется</span></div>
+          <div class="price-card-body">
+            <div class="price-kicker">Комплект «Конденсат»</div>
+            <div class="price-num">14 990 <sup>₽</sup></div>
+            <ul class="price-feats">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Основная и капиллярные трубки</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Провода для подключения</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Гидрофильный материал</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Рабочий диапазон 0…+50&nbsp;°C</li>
+            </ul>
+            <button class="btn btn-primary js-open-modal" data-kit="base">Заказать комплект</button>
+            <p class="price-footnote" style="text-align:left;margin-top:var(--sp-5);">Зимняя комплектация временно недоступна для заказа — уточняется у производителя. Дренажный насос закупается отдельно и не входит в стоимость.</p>
+          </div>
         </div>
       </div>
-      <p class="price-footnote">Дренажный насос закупается отдельно у стороннего производителя и не входит в стоимость комплекта.</p>
       <div class="pro-link">
         <p>Устанавливаете кондиционеры профессионально?</p>
         <button class="btn btn-ghost js-open-modal" data-kit="base" data-org="1">Заявка для монтажной организации →</button>
@@ -958,16 +1065,7 @@
       <h3 id="modal-title">Заявка на комплект</h3>
       <p class="modal-sub">Заполните форму — мы свяжемся с вами для уточнения деталей монтажа.</p>
 
-      <div class="kit-choice" role="radiogroup" aria-label="Выбор комплекта">
-        <label class="kit-option" data-value="base">
-          <input type="radio" name="kit" value="base" checked>
-          <div class="kn">Базовый</div><div class="kp">14 990 ₽</div>
-        </label>
-        <label class="kit-option" data-value="winter">
-          <input type="radio" name="kit" value="winter">
-          <div class="kn">С зимним комплектом</div><div class="kp">16 990 ₽</div>
-        </label>
-      </div>
+      <div class="kit-summary">Комплект «Конденсат» — <strong>14 990 ₽</strong></div>
 
       <div class="field"><label for="f-name">Имя и фамилия</label><input type="text" id="f-name" name="name" required autocomplete="name"></div>
       <div class="field-row">
@@ -1035,17 +1133,22 @@
     });
   }
 
-  /* ---- scroll progress ---- */
+  /* ---- scroll progress + back to top ---- */
   var progress = document.getElementById('scroll-progress');
+  var toTop = document.getElementById('to-top');
   var ticking = false;
   function updateProgress(){
     var h = document.documentElement;
     var pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
     progress.style.width = pct + '%';
+    toTop.classList.toggle('is-visible', h.scrollTop > window.innerHeight * 0.6);
     ticking = false;
   }
   window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(updateProgress); ticking = true; } }, {passive:true});
   updateProgress();
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior: reduced ? 'auto' : 'smooth'});
+  });
 
   /* ---- reveal on scroll ---- */
   var reveals = document.querySelectorAll('.reveal');
@@ -1088,11 +1191,16 @@
     });
   }
 
-  /* ---- steps progress line + active card ---- */
+  /* ---- steps progress line + active card + diagram nodes ---- */
   var stepsWrap = document.querySelector('.steps-wrap');
   var stepCards = document.querySelectorAll('.step-card');
+  var diagramNodes = document.querySelectorAll('.diagram-node');
   var progLine = document.getElementById('steps-progress-line');
   var droplet = document.getElementById('steps-droplet');
+  function setActiveStep(idx){
+    stepCards.forEach(function(c,i){ c.classList.toggle('is-active', i===idx); });
+    diagramNodes.forEach(function(n){ n.classList.toggle('is-active', parseInt(n.getAttribute('data-step'),10)===idx); });
+  }
   if (stepsWrap && stepCards.length) {
     var x0 = 100, x1 = 900;
     function updateSteps(){
@@ -1105,12 +1213,29 @@
       if(progLine){ progLine.setAttribute('x2', x); }
       if(droplet){ droplet.setAttribute('cx', x); }
       var activeIdx = Math.min(stepCards.length-1, Math.floor(frac * stepCards.length));
-      stepCards.forEach(function(c,i){ c.classList.toggle('is-active', i===activeIdx && frac>0.02); });
+      setActiveStep(frac>0.02 ? activeIdx : -1);
     }
     var stTicking=false;
     window.addEventListener('scroll', function(){ if(!stTicking){ requestAnimationFrame(updateSteps); stTicking=true; setTimeout(function(){stTicking=false;},16);} }, {passive:true});
     updateSteps();
   }
+
+  /* ---- diagram nodes: click/keyboard opens the matching step card ---- */
+  diagramNodes.forEach(function(node){
+    function activate(){
+      var idx = parseInt(node.getAttribute('data-step'), 10);
+      setActiveStep(idx);
+      var card = stepCards[idx];
+      if(!card) return;
+      card.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'center'});
+      if(!card.classList.contains('is-open')){
+        var moreBtn = card.querySelector('.step-more');
+        if(moreBtn) moreBtn.click();
+      }
+    }
+    node.addEventListener('click', activate);
+    node.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); activate(); } });
+  });
 
   /* ---- animated stat counters ---- */
   var counters = document.querySelectorAll('[data-count]');
