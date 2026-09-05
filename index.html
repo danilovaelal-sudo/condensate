@@ -1,3 +1,5 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Конденсат</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,8 +28,8 @@
     --sp-6:24px; --sp-8:32px; --sp-10:40px; --sp-12:48px; --sp-16:64px;
     --sp-20:80px; --sp-24:96px; --sp-32:128px;
 
-    --fs-cap:.6875rem; --fs-sm:.875rem; --fs-body:1.0625rem; --fs-md:1.25rem;
-    --fs-h3:1.75rem; --fs-h2:2.5rem; --fs-h1:clamp(2.4rem, 4.6vw, 4.4rem);
+    --fs-cap:.75rem; --fs-sm:.9375rem; --fs-body:1.125rem; --fs-md:1.3rem;
+    --fs-h3:1.85rem; --fs-h2:2.6rem; --fs-h1:clamp(2.4rem, 4.6vw, 4.4rem);
 
     --font-display:'Archivo', ui-sans-serif, system-ui, sans-serif;
     --font-mono:'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
@@ -79,10 +81,10 @@
   }
 
   *,*::before,*::after{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden;}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
   body{
-    margin:0;
+    margin:0;max-width:100%;overflow-x:hidden;
     background:var(--bg);
     color:var(--ink);
     font-family:var(--font-display);
@@ -232,7 +234,7 @@
   /* ============ PROBLEM LIST ============ */
   .problem-list{display:grid;gap:0;border-top:1px solid var(--line);}
   .problem-row{
-    display:grid;grid-template-columns:64px 1fr;gap:var(--sp-6);
+    display:grid;grid-template-columns:64px minmax(0,1fr);gap:var(--sp-6);
     padding-block:var(--sp-6);border-bottom:1px solid var(--line);
   }
   .problem-row .idx{font-family:var(--font-mono);color:var(--ink-faint);font-size:var(--fs-sm);}
@@ -371,8 +373,12 @@
   .patent-cap{font-family:var(--font-mono);font-size:11px;color:#8FA6FF;margin-top:var(--sp-3);}
   .patent-facts{list-style:none;margin:var(--sp-8) 0 0;padding:0;}
   .patent-facts li{
-    display:grid;grid-template-columns:150px 1fr;gap:var(--sp-4);
+    display:grid;grid-template-columns:150px minmax(0,1fr);gap:var(--sp-4);
     padding-block:var(--sp-3);border-top:1px solid #2A2D33;font-size:var(--fs-sm);
+    overflow-wrap:break-word;
+  }
+  @media (max-width:520px){
+    .patent-facts li{grid-template-columns:1fr;gap:4px;}
   }
   .patent-facts li:last-child{border-bottom:1px solid #2A2D33;}
   .patent-facts .k{font-family:var(--font-mono);color:#8FA6FF;font-size:12px;text-transform:uppercase;letter-spacing:.05em;}
@@ -537,15 +543,15 @@
 
   /* ============ MOBILE READABILITY PASS ============ */
   @media (max-width:640px){
-    :root{ --fs-cap:.8125rem; --fs-sm:.9375rem; --fs-body:1.0625rem; }
-    body{font-size:1rem;}
+    :root{ --fs-cap:.875rem; --fs-sm:1rem; --fs-body:1.125rem; }
+    body{font-size:1.0625rem;}
     .eyebrow{margin-bottom:var(--sp-3);}
     .stat-label,.stat-tile .cap,.price-footnote,.footer-bottom,.patent-facts .k,
-    .field label,.kit-col-h{font-size:13.5px;}
+    .field label,.kit-col-h{font-size:14.5px;}
     .pt-label,.price-kicker,.patent-cap,.footer-col h5,
-    .kit-summary,.adv-flip-hint,.tag-ok{font-size:12.5px;}
-    .step-detail-inner p{font-size:14px;}
-    .faq-q{font-size:1.05rem;}
+    .kit-summary,.adv-flip-hint,.tag-ok{font-size:13.5px;}
+    .step-detail-inner p{font-size:15px;}
+    .faq-q{font-size:1.1rem;}
   }
 </style>
 
@@ -972,7 +978,7 @@
     <div class="container">
       <div class="section-head reveal">
         <div class="eyebrow">08 / Стоимость</div>
-        <h2>Выберите комплект</h2>
+        <h2>Стоимость комплекта</h2>
       </div>
       <div class="price-grid price-grid-single reveal">
         <div class="price-card price-card-single">
