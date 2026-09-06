@@ -96,7 +96,8 @@
   img{max-width:100%;display:block;}
   a{color:inherit;}
   button{font-family:inherit;}
-  h1,h2,h3,h4{font-family:var(--font-display);margin:0;text-wrap:balance;letter-spacing:-.01em;}
+  h1,h2,h3,h4{font-family:var(--font-display);margin:0;text-wrap:balance;letter-spacing:-.01em;overflow-wrap:break-word;}
+  p{overflow-wrap:break-word;}
   p{margin:0;}
   .container{max-width:1180px;margin-inline:auto;padding-inline:var(--sp-6);}
   @media (max-width:640px){ .container{padding-inline:var(--sp-4);} }
@@ -130,7 +131,7 @@
     display:inline-flex;align-items:center;gap:10px;
     transition:transform .35s var(--ease-out), background .25s var(--ease-out), box-shadow .35s var(--ease-out), border-color .25s var(--ease-out);
     text-decoration:none;
-    white-space:nowrap;
+    max-width:100%;
   }
   .btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .btn-primary{background:var(--accent);color:var(--accent-ink);}
@@ -192,7 +193,7 @@
   .hero-content .sub{color:rgba(255,255,255,.86);}
   .hero-content .btn-ghost{color:#fff;border-color:rgba(255,255,255,.42);}
   .hero-content .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1);color:#fff;}
-  .hero-grid{display:grid;grid-template-columns:1fr;gap:var(--sp-8);}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-8);}
   .hero-badge-row{display:flex;flex-wrap:wrap;gap:var(--sp-4);align-items:center;margin-bottom:var(--sp-6);}
   .patent-chip{
     font-family:var(--font-mono);font-size:var(--fs-cap);letter-spacing:.08em;
@@ -204,7 +205,7 @@
   .hero-cta-row{display:flex;flex-wrap:wrap;gap:var(--sp-4);margin-top:var(--sp-8);align-items:center;}
   .hero-stats{border-bottom:1px solid var(--line);}
   .stat-strip{
-    display:grid;grid-template-columns:repeat(4,1fr);
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
     border-top:1px solid var(--line);
   }
   .stat-strip .stat{
@@ -215,14 +216,14 @@
   .stat-num{font-family:var(--font-mono);font-weight:700;font-size:1.7rem;font-variant-numeric:tabular-nums;color:var(--ink);}
   .stat-label{font-size:12px;color:var(--ink-soft);margin-top:4px;}
   @media (max-width:760px){
-    .stat-strip{grid-template-columns:repeat(2,1fr);}
+    .stat-strip{grid-template-columns:repeat(2,minmax(0,1fr));}
     .stat-strip .stat:nth-child(2){border-right:none;}
   }
 
   /* ============ SECTION SHELL ============ */
   section{padding-block:var(--sp-24);border-bottom:1px solid var(--line);}
   section.tight{padding-block:var(--sp-16);}
-  .section-head{display:grid;grid-template-columns:1fr;gap:var(--sp-4);margin-bottom:var(--sp-12);}
+  .section-head{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-4);margin-bottom:var(--sp-12);}
   .section-head h2{font-size:var(--fs-h2);max-width:18ch;}
   .section-head .lead{color:var(--ink-soft);max-width:56ch;font-size:var(--fs-md);margin-top:var(--sp-2);}
   .section-dark{background:var(--dark-surface);color:var(--dark-ink);border-bottom-color:#000;}
@@ -261,8 +262,8 @@
   .diagram-node.is-active .node-label{fill:var(--ink);font-weight:600;}
   .source-icon{stroke:var(--ink-faint);fill:none;stroke-width:1.4;}
   .source-label{fill:var(--ink-faint);font-size:10px;}
-  .steps-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-4);margin-top:var(--sp-4);}
-  @media (max-width:900px){ .steps-grid{grid-template-columns:1fr;gap:0;} }
+  .steps-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-4);}
+  @media (max-width:900px){ .steps-grid{grid-template-columns:minmax(0,1fr);gap:0;} }
   .step-card{
     padding:var(--sp-5) var(--sp-4) var(--sp-6);
     border:1px solid var(--line);border-radius:var(--radius-md);
@@ -288,17 +289,17 @@
   .step-detail-inner p{margin-top:var(--sp-3);padding-top:var(--sp-3);border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-faint);}
 
   .sprayer-note{
-    margin-top:var(--sp-12);display:grid;grid-template-columns:180px 1fr;gap:var(--sp-6);
+    margin-top:var(--sp-12);display:grid;grid-template-columns:180px minmax(0,1fr);gap:var(--sp-6);
     padding:var(--sp-6);background:var(--accent-soft);border:1px solid var(--accent-soft-line);border-radius:var(--radius-md);
   }
-  @media (max-width:700px){ .sprayer-note{grid-template-columns:1fr;} }
+  @media (max-width:700px){ .sprayer-note{grid-template-columns:minmax(0,1fr);} }
   .sprayer-note h4{font-family:var(--font-mono);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.06em;color:var(--accent);}
   .sprayer-note p{font-size:var(--fs-sm);color:var(--ink-soft);margin-top:var(--sp-2);}
 
   /* ============ ADVANTAGES ============ */
-  .adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-  @media (max-width:980px){ .adv-grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:560px){ .adv-grid{grid-template-columns:1fr;} }
+  .adv-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media (max-width:980px){ .adv-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  @media (max-width:560px){ .adv-grid{grid-template-columns:minmax(0,1fr);} }
   .adv-flip{background:var(--surface);min-height:200px;perspective:1400px;}
   .adv-flip-inner{
     position:relative;width:100%;height:100%;min-height:200px;
@@ -350,23 +351,24 @@
   }
 
   /* ============ AUDIENCE ============ */
-  .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-10);}
-  @media (max-width:800px){ .audience-grid{grid-template-columns:1fr;} }
+  .audience-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-10);}
+  @media (max-width:800px){ .audience-grid{grid-template-columns:minmax(0,1fr);} }
   .audience-col h3{font-size:var(--fs-h3);margin-bottom:var(--sp-5);}
   .audience-col ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
   .audience-col li{padding-block:var(--sp-4);border-bottom:1px solid var(--line);font-size:var(--fs-body);}
 
   /* ============ SPECS ============ */
-  .stat-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:var(--sp-12);}
-  @media (max-width:760px){ .stat-tiles{grid-template-columns:repeat(2,1fr);} }
+  .stat-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:var(--sp-12);}
+  @media (max-width:760px){ .stat-tiles{grid-template-columns:repeat(2,minmax(0,1fr));} }
   .stat-tile{background:var(--surface);padding:var(--sp-6);text-align:left;}
   .stat-tile .big{font-family:var(--font-mono);font-weight:700;font-size:2.2rem;font-variant-numeric:tabular-nums;}
   .stat-tile .cap{font-size:12px;color:var(--ink-soft);margin-top:6px;}
 
-  .kit-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--sp-12);}
-  @media (max-width:900px){ .kit-cols{grid-template-columns:1fr;} }
+  .kit-cols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--sp-12);}
+  @media (max-width:900px){ .kit-cols{grid-template-columns:minmax(0,1fr);} }
   .kit-col-h{font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);margin-bottom:var(--sp-4);}
-  table.spec-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);}
+  table.spec-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);table-layout:fixed;}
+  table.spec-table td{overflow-wrap:break-word;}
   table.spec-table th{
     text-align:left;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
     color:var(--ink-faint);font-weight:600;padding-bottom:var(--sp-3);border-bottom:1px solid var(--line-strong);
@@ -377,8 +379,9 @@
   .table-scroll{overflow-x:auto;}
 
   /* ============ PATENT ============ */
-  .patent-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);align-items:center;}
-  @media (max-width:900px){ .patent-grid{grid-template-columns:1fr;gap:var(--sp-10);} }
+  .patent-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-16);align-items:center;}
+  .patent-grid > div{min-width:0;}
+  @media (max-width:900px){ .patent-grid{grid-template-columns:minmax(0,1fr);gap:var(--sp-10);} }
   .patent-figure{position:relative;}
   .patent-figure img{
     border:1px solid #2A2D33;border-radius:var(--radius-md);
@@ -424,8 +427,8 @@
     position:absolute;left:var(--sp-6);bottom:var(--sp-4);z-index:1;
     font-family:var(--font-mono);font-size:11px;letter-spacing:.03em;color:rgba(255,255,255,.6);
   }
-  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8);}
-  @media (max-width:760px){ .price-grid{grid-template-columns:1fr;} }
+  .price-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-8);}
+  @media (max-width:760px){ .price-grid{grid-template-columns:minmax(0,1fr);} }
   .price-card{
     border:1px solid var(--line);border-radius:var(--radius-md);padding:var(--sp-8);
     display:flex;flex-direction:column;background:var(--surface);color:var(--ink);
@@ -513,8 +516,8 @@
     transition:border-color .25s;
   }
   .field input:focus, .field select:focus{outline:none;border-color:var(--accent);}
-  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);}
-  @media (max-width:480px){ .field-row{grid-template-columns:1fr;} }
+  .field-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-4);}
+  @media (max-width:480px){ .field-row{grid-template-columns:minmax(0,1fr);} }
   .kit-summary{
     font-size:var(--fs-sm);color:var(--ink-soft);margin-bottom:var(--sp-5);
     padding:var(--sp-3) var(--sp-4);background:var(--accent-soft);border:1px solid var(--accent-soft-line);border-radius:var(--radius-sm);
@@ -986,7 +989,7 @@
       <div class="patent-grid">
         <div class="reveal">
           <div class="eyebrow">07 / Патент</div>
-          <h2 style="font-size:var(--fs-h2);max-width:16ch;">Это не эксперимент. Это зарегистрированное изобретение.</h2>
+          <h2 style="font-size:var(--fs-h2);max-width:22ch;">Это не эксперимент. Это зарегистрированное изобретение.</h2>
           <p style="color:#B7BBC4;margin-top:var(--sp-5);max-width:52ch;">«Способ удаления конденсата во внешних блоках сплит-систем и мультисплит-систем» — патент Российской Федерации RU 2 862 761 C1.</p>
           <ul class="patent-facts">
             <li><span class="k">Заявка</span><span>№ 2025118474, подана 3 июля 2025 г.</span></li>
