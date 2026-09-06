@@ -241,6 +241,7 @@
     display:grid;grid-template-columns:64px minmax(0,1fr);gap:var(--sp-6);
     padding-block:var(--sp-6);border-bottom:1px solid var(--line);
   }
+  .problem-row:last-child{border-bottom:none;}
   .problem-row .idx{font-family:var(--font-mono);color:var(--ink-faint);font-size:var(--fs-sm);}
   .problem-row p{font-size:var(--fs-md);max-width:60ch;}
 
@@ -463,6 +464,7 @@
   /* ============ FAQ ============ */
   .faq-list{border-top:1px solid var(--line);}
   .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:none;}
   .faq-q{
     width:100%;text-align:left;background:none;border:none;cursor:pointer;
     display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);
