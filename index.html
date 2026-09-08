@@ -497,6 +497,7 @@
   .kit-option .kn{font-weight:700;font-size:var(--fs-sm);}
   .kit-option .kp{font-family:var(--font-mono);font-size:var(--fs-sm);color:var(--accent);margin-top:2px;}
   .checkline{display:flex;gap:10px;align-items:flex-start;font-size:var(--fs-sm);color:var(--ink-soft);margin-bottom:var(--sp-4);}
+  .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
   .checkline input{margin-top:4px;}
   .checkline a{color:var(--accent);text-decoration:underline;background:none;border:none;cursor:pointer;font:inherit;padding:0;}
   #org-field{display:none;}
@@ -1087,6 +1088,10 @@
     <button class="modal-close js-close-modal" aria-label="Закрыть"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
 
     <form class="modal-form" id="order-form">
+      <input type="hidden" name="access_key" value="a63ebc7e-c02a-4f72-b3c5-14c7e3e2350d">
+      <input type="hidden" name="subject" value="Новая заявка с сайта «Конденсат»">
+      <input type="hidden" name="from_name" value="Сайт condensate.tech">
+      <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
       <h3 id="modal-title">Заявка на комплект</h3>
       <p class="modal-sub">Заполните форму — мы свяжемся с вами для уточнения деталей монтажа.</p>
 
@@ -1122,12 +1127,13 @@
       </label>
 
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Отправить заявку</button>
+      <p class="form-error" id="form-error" hidden style="color:var(--danger);font-size:var(--fs-sm);margin-top:var(--sp-3);text-align:center;">Не получилось отправить заявку. Проверьте соединение с интернетом и попробуйте ещё раз, либо позвоните нам напрямую.</p>
     </form>
 
     <div class="modal-success" id="modal-success">
       <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 6-6"/></svg>
       <h3>Заявка принята</h3>
-      <p style="color:var(--ink-soft);margin-top:var(--sp-2);">Это демонстрационная форма макета — реальная отправка на почту и в Telegram будет подключена на финальном сайте.</p>
+      <p style="color:var(--ink-soft);margin-top:var(--sp-2);">Мы получили её и свяжемся с вами в ближайшее время.</p>
     </div>
   </div>
 </div>
@@ -1378,10 +1384,28 @@
   }
   document.getElementById('f-org').addEventListener('change', toggleOrgField);
 
+  var formError = document.getElementById('form-error');
   orderForm.addEventListener('submit', function(e){
     e.preventDefault();
-    orderForm.classList.add('is-hidden');
-    modalSuccess.classList.add('is-visible');
+    var submitBtn = orderForm.querySelector('button[type="submit"]');
+    var originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправляем…';
+    formError.hidden = true;
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(orderForm)
+    }).then(function(res){ return res.json(); }).then(function(data){
+      if (!data.success) throw new Error(data.message || 'submit failed');
+      orderForm.classList.add('is-hidden');
+      modalSuccess.classList.add('is-visible');
+    }).catch(function(){
+      formError.hidden = false;
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    });
   });
 
   /* ---- policy modal ---- */
