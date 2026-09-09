@@ -10,6 +10,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(112427671, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/112427671" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <style>
   /* ============ TOKENS ============ */
   :root{
@@ -260,6 +277,7 @@
   @media (max-width:700px){ .sprayer-note{grid-template-columns:minmax(0,1fr);} }
   .sprayer-note h4{font-family:var(--font-mono);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.06em;color:var(--accent);}
   .sprayer-note p{font-size:var(--fs-sm);color:var(--ink-soft);margin-top:var(--sp-2);}
+  .sprayer-note + .sprayer-note{margin-top:var(--sp-6);}
 
   /* ============ ADVANTAGES ============ */
   .adv-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
@@ -981,6 +999,15 @@
           <p class="price-footnote" style="text-align:left;margin-top:var(--sp-5);">Зимняя комплектация временно недоступна для заказа - уточняется у производителя. Дренажный насос закупается отдельно и не входит в стоимость.</p>
         </div>
       </div>
+      <div class="sprayer-note reveal">
+        <h4>Доставка и оплата</h4>
+        <p>По всей России, бесплатно - доставку оплачивает продавец. Срок - по тарифам транспортной компании СДЭК. Оплата картой или безналичным расчётом для организаций.</p>
+      </div>
+      <div class="sprayer-note reveal">
+        <h4>Гарантия и возврат</h4>
+        <p>Гарантия на комплект - 3 года. Товар с браком - заберём и отправим замену, все пересылки за счёт продавца. Товар без брака (не подошёл, передумали) можно вернуть в течение 30 дней после получения, доставку возврата оплачивает продавец.</p>
+      </div>
+
       <div class="pro-link">
         <p>Устанавливаете кондиционеры профессионально?</p>
         <button class="btn btn-ghost js-open-modal" data-kit="base" data-org="1">Заявка для монтажной организации →</button>
@@ -989,36 +1016,37 @@
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
+  <!-- ============ FAQ / OBJECTIONS ============ -->
   <section id="faq" style="border-bottom:none;">
     <div class="container">
       <div class="section-head reveal">
-        <h2>Частые вопросы</h2>
+        <h2>Прежде чем купить</h2>
+        <p class="lead">Отвечаем на вопросы, которые реально возникают перед покупкой - без общих фраз.</p>
       </div>
       <div class="faq-list reveal">
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>Это распылитель конденсата?</span><span class="faq-plus" aria-hidden="true"></span></button>
-          <div class="faq-a"><div class="faq-a-inner"><p>Нет. Распылитель выбрасывает капли воды в воздух через форсунки. Наша система подаёт конденсат непосредственно на теплообменник наружного блока, где он остаётся в рабочем контуре до полного испарения.</p></div></div>
+          <button class="faq-q" aria-expanded="false"><span>Это реально работает, или маркетинговый ход?</span><span class="faq-plus" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Способ запатентован - патент РФ RU 2 862 761 C1, официально зарегистрированное изобретение, не эксперимент и не гипотеза. Полная схема работы - в разделе «Принцип работы» выше.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>Подойдёт ли система к моему кондиционеру?</span><span class="faq-plus" aria-hidden="true"></span></button>
-          <div class="faq-a"><div class="faq-a-inner"><p>Система рассчитана на бытовые и полупромышленные сплит-системы и мультисплит-системы разных производителей. Точную совместимость с конкретной моделью подтверждает монтажная организация при осмотре объекта.</p></div></div>
+          <button class="faq-q" aria-expanded="false"><span>Не повредит ли это кондиционер и не слетит ли его гарантия?</span><span class="faq-plus" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Монтаж выполняет специализированная организация строго по инструкции - так же как обычный монтаж кондиционера. Рекомендуем уточнить точные условия гарантии у производителя вашего кондиционера перед установкой.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>Как система работает зимой?</span><span class="faq-plus" aria-hidden="true"></span></button>
-          <div class="faq-a"><div class="faq-a-inner"><p>Для эксплуатации при отрицательных температурах предусмотрена отдельная зимняя комплектация с греющими кабелями и изоляцией - она обеспечивает работу при температуре до −35&nbsp;°C.</p></div></div>
+          <button class="faq-q" aria-expanded="false"><span>Почему 14 990 ₽, и почему насос не входит в комплект?</span><span class="faq-plus" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner"><p>В стоимость входит всё, что определяет запатентованный способ отвода конденсата - трубки, гидрофильный материал, провода для подключения. Дренажный насос - стандартный компонент, который отличается под разные модели кондиционеров, поэтому его подбирает и закупает монтажная организация под вашу технику.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>Нужно ли отдельное обслуживание?</span><span class="faq-plus" aria-hidden="true"></span></button>
-          <div class="faq-a"><div class="faq-a-inner"><p>Отдельный частый сервис не требуется - проверка системы проводится вместе с плановым техобслуживанием кондиционера, не реже одного раза в полгода.</p></div></div>
+          <button class="faq-q" aria-expanded="false"><span>Кто устанавливает и подойдёт ли к моей модели?</span><span class="faq-plus" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Монтаж - специализированная организация, она же подтверждает совместимость с конкретной моделью при осмотре объекта. Система рассчитана на бытовые и полупромышленные сплит- и мультисплит-системы разных производителей.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>Кто устанавливает комплект?</span><span class="faq-plus" aria-hidden="true"></span></button>
-          <div class="faq-a"><div class="faq-a-inner"><p>Монтаж выполняет специализированная монтажная организация строго по инструкции - так же, как монтаж самого кондиционера.</p></div></div>
+          <button class="faq-q" aria-expanded="false"><span>Что если товар не подошёл или пришёл с браком?</span><span class="faq-plus" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Брак - заберём и отправим замену за счёт продавца. Не подошёл без брака - можно вернуть в течение 30 дней, доставку возврата оплачивает продавец. Подробности - в разделе «Гарантия и возврат» выше.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>Это официально запатентовано?</span><span class="faq-plus" aria-hidden="true"></span></button>
-          <div class="faq-a"><div class="faq-a-inner"><p>Да. Способ зарегистрирован как изобретение - патент Российской Федерации RU 2 862 761 C1, дата регистрации 26 мая 2026 года. Документ патента опубликован в разделе выше.</p></div></div>
+          <button class="faq-q" aria-expanded="false"><span>Можно ли доверять продавцу?</span><span class="faq-plus" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Продаёт официально зарегистрированный ИП, реквизиты - в подвале сайта. Способ защищён патентом РФ, орган регистрации - Роспатент, дата и номер патента указаны в разделе выше.</p></div></div>
         </div>
       </div>
     </div>
@@ -1050,6 +1078,12 @@
           <h5>Документы</h5>
           <button class="linklike js-open-policy">Обработка персональных данных</button>
         </div>
+        <div class="footer-col">
+          <h5>Реквизиты</h5>
+          <span style="display:block;font-size:var(--fs-sm);color:var(--ink-soft);padding-block:4px;">ИП Кокшаров Никита Игоревич<br>ОГРНИП 324527500008110<br>ИНН 521405663773<br>г. Дзержинск, ул. Панфиловцев, 9, кв. 117</span>
+          <a href="tel:+79103962295">+7 910 396-72-95</a>
+          <a href="mailto:Condensate.tech@yandex.ru">Condensate.tech@yandex.ru</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1074,13 +1108,13 @@
 
       <div class="kit-summary">Комплект «Конденсат» - <strong>14 990 ₽</strong></div>
 
-      <div class="field"><label for="f-name">Имя и фамилия</label><input type="text" id="f-name" name="name" required autocomplete="name"></div>
+      <div class="field"><label for="f-name">Имя и фамилия</label><input type="text" id="f-name" name="name" required autocomplete="name" class="ym-disable-keys"></div>
       <div class="field-row">
-        <div class="field"><label for="f-phone">Телефон</label><input type="tel" id="f-phone" name="phone" required autocomplete="tel" placeholder="+7 (___) ___-__-__"></div>
-        <div class="field"><label for="f-email">E-mail (необязательно)</label><input type="email" id="f-email" name="email" autocomplete="email"></div>
+        <div class="field"><label for="f-phone">Телефон</label><input type="tel" id="f-phone" name="phone" required autocomplete="tel" placeholder="+7 (___) ___-__-__" class="ym-disable-keys"></div>
+        <div class="field"><label for="f-email">E-mail (необязательно)</label><input type="email" id="f-email" name="email" autocomplete="email" class="ym-disable-keys"></div>
       </div>
       <div class="field-row">
-        <div class="field"><label for="f-city">Город</label><input type="text" id="f-city" name="city" required autocomplete="address-level2"></div>
+        <div class="field"><label for="f-city">Город</label><input type="text" id="f-city" name="city" required autocomplete="address-level2" class="ym-disable-keys"></div>
         <div class="field"><label for="f-ac">Тип кондиционера</label>
           <select id="f-ac" name="ac_type" required>
             <option value="" disabled selected>Выберите</option>
@@ -1090,13 +1124,13 @@
           </select>
         </div>
       </div>
-      <div class="field"><label for="f-model">Марка / модель (если знаете)</label><input type="text" id="f-model" name="model"></div>
+      <div class="field"><label for="f-model">Марка / модель (если знаете)</label><input type="text" id="f-model" name="model" class="ym-disable-keys"></div>
 
       <label class="checkline">
         <input type="checkbox" id="f-org" name="is_org">
         <span>Я представляю монтажную или сервисную организацию</span>
       </label>
-      <div class="field" id="org-field"><label for="f-orgname">Название организации</label><input type="text" id="f-orgname" name="org_name"></div>
+      <div class="field" id="org-field"><label for="f-orgname">Название организации</label><input type="text" id="f-orgname" name="org_name" class="ym-disable-keys"></div>
 
       <label class="checkline">
         <input type="checkbox" required name="consent">
@@ -1120,7 +1154,7 @@
   <div class="modal">
     <button class="modal-close js-close-policy" aria-label="Закрыть"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <h3 id="policy-title">Обработка персональных данных</h3>
-    <p class="modal-sub">Полный текст политики будет опубликован после получения юридических реквизитов продавца. Здесь появится: какие данные собираются, с какой целью, срок хранения и порядок отзыва согласия - в соответствии с 152-ФЗ.</p>
+    <p class="modal-sub">Оператор персональных данных - ИП Кокшаров Никита Игоревич (ОГРНИП 324527500008110, ИНН 521405663773). Данные из формы заявки (имя, телефон, город и другие указанные поля) используются только для обработки заказа и связи с покупателем. Сайт также использует Яндекс.Метрику для сбора обезличенной статистики посещаемости (просмотры страниц, переходы) - без привязки к персональным данным из формы. Полный текст политики в соответствии с 152-ФЗ (сроки хранения, порядок отзыва согласия) будет опубликован дополнительно.</p>
   </div>
 </div>
 
