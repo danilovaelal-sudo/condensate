@@ -613,7 +613,7 @@
     <div class="container">
       <div class="stat-strip">
         <div class="stat"><div class="stat-num">35 дБ</div><div class="stat-label">уровень шума, не более</div></div>
-        <div class="stat"><div class="stat-num">−35°C</div><div class="stat-label">с зимней комплектацией</div></div>
+        <div class="stat"><div class="stat-num">0…+50°C</div><div class="stat-label">рабочий диапазон комплекта</div></div>
         <div class="stat"><div class="stat-num">1,5 кг</div><div class="stat-label">вес полного комплекта</div></div>
         <div class="stat"><div class="stat-num">IPX4</div><div class="stat-label">защита от водяных брызг</div></div>
       </div>
@@ -801,8 +801,8 @@
         <div class="adv-card">
           <svg class="adv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M4.5 6l15 12M19.5 6l-15 12"/></svg>
           <h4>Для разных климатов</h4>
-          <p>Зимняя комплектация обеспечивает работу при температуре до −35&nbsp;°C.</p>
-          <p class="adv-detail">Греющий кабель и изоляция на поплавковой камере, помпе и трубках сохраняют работоспособность системы даже в сильные морозы.</p>
+          <p>В разработке зимняя комплектация - с ней система рассчитана на работу при температуре до −35&nbsp;°C.</p>
+          <p class="adv-detail">Греющий кабель и изоляция на поплавковой камере, помпе и трубках должны сохранять работоспособность системы в сильные морозы. Комплектация уточняется у производителя и временно недоступна для заказа.</p>
         </div>
         <div class="adv-card">
           <svg class="adv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
@@ -856,8 +856,9 @@
         </div>
         <div class="compare-row is-ours">
           <div class="approach">Система «Конденсат»</div>
-          <div class="limit">Конденсат подаётся на теплообменник наружного блока, распределяется по его поверхности и испаряется под действием тепла и воздушного потока - без наружного слива и без ручного обслуживания.
+          <div class="limit">Конденсат подаётся на теплообменник наружного блока, распределяется по его поверхности и испаряется под действием тепла и воздушного потока - без наружного слива и без ручного опорожнения ёмкости.
             <div class="tag-ok"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Запатентованный способ</div>
+            <p style="color:var(--ink-soft);font-size:var(--fs-sm);margin-top:var(--sp-3);">Ограничения: дренажный насос закупается отдельно, монтаж выполняет специализированная организация.</p>
           </div>
         </div>
       </div>
@@ -901,7 +902,7 @@
 
       <div class="stat-tiles reveal">
         <div class="stat-tile"><div class="big" data-count="35" data-suffix="&nbsp;дБ">0</div><div class="cap">уровень шума, не более</div></div>
-        <div class="stat-tile"><div class="big" data-count="-35" data-suffix="°C">0</div><div class="cap">рабочая температура с зимним комплектом</div></div>
+        <div class="stat-tile"><div class="big">0…+50°C</div><div class="cap">рабочий диапазон комплекта</div></div>
         <div class="stat-tile"><div class="big" data-count="1.5" data-suffix="&nbsp;кг" data-decimals="1">0</div><div class="cap">вес полного комплекта</div></div>
         <div class="stat-tile"><div class="big">IPX4</div><div class="cap">защита от водяных брызг</div></div>
       </div>
@@ -952,7 +953,7 @@
     <div class="container">
       <div class="patent-grid">
         <div class="reveal">
-            <h2 style="font-size:var(--fs-h2);max-width:22ch;">Это не эксперимент. Это зарегистрированное изобретение.</h2>
+            <h2 style="font-size:var(--fs-h2);max-width:22ch;">Зарегистрированное изобретение, а не гипотеза.</h2>
           <p style="color:#B7BBC4;margin-top:var(--sp-5);max-width:52ch;">«Способ удаления конденсата во внешних блоках сплит-систем и мультисплит-систем» - патент Российской Федерации RU 2 862 761 C1.</p>
           <ul class="patent-facts">
             <li><span class="k">Заявка</span><span>№ 2025118474, подана 3 июля 2025 г.</span></li>
@@ -1115,12 +1116,11 @@
       </div>
       <div class="field-row">
         <div class="field"><label for="f-city">Город</label><input type="text" id="f-city" name="city" required autocomplete="address-level2" class="ym-disable-keys"></div>
-        <div class="field"><label for="f-ac">Тип кондиционера</label>
-          <select id="f-ac" name="ac_type" required>
-            <option value="" disabled selected>Выберите</option>
+        <div class="field"><label for="f-ac">Тип кондиционера (если знаете)</label>
+          <select id="f-ac" name="ac_type">
+            <option value="" selected>Пока не знаю</option>
             <option value="split">Сплит-система</option>
             <option value="multisplit">Мультисплит-система</option>
-            <option value="unsure">Пока не знаю</option>
           </select>
         </div>
       </div>
