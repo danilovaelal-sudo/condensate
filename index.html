@@ -1,7 +1,17 @@
 <!DOCTYPE html>
+<html lang="ru">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Конденсат</title>
+<title>Система удаления конденсата для кондиционера | Без капель на фасаде</title>
+<meta name="description" content="Система направляет конденсат на теплообменник наружного блока, где вода распределяется и испаряется. Для бытовых и полупромышленных сплит-систем. Патент РФ RU 2 862 761 C1.">
+<link rel="canonical" href="https://condensate.tech/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Конденсат">
+<meta property="og:title" content="Система удаления конденсата для кондиционера | Без капель на фасаде">
+<meta property="og:description" content="Система направляет конденсат на теплообменник наружного блока, где вода распределяется и испаряется. Патент РФ RU 2 862 761 C1.">
+<meta property="og:url" content="https://condensate.tech/">
+<meta property="og:image" content="https://condensate.tech/assets/img/hero-device.jpg">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -1447,12 +1457,13 @@
   var progress = document.getElementById('scroll-progress');
   var toTop = document.getElementById('to-top');
   var ctaBar = document.getElementById('mobile-cta-bar');
+  var heroEl = document.querySelector('.hero');
   var ticking = false;
   function updateProgress(){
     var h = document.documentElement;
     var pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
     progress.style.width = pct + '%';
-    var pastHero = h.scrollTop > window.innerHeight * 0.6;
+    var pastHero = heroEl ? heroEl.getBoundingClientRect().bottom < 0 : h.scrollTop > window.innerHeight * 0.6;
     toTop.classList.toggle('is-visible', pastHero);
     ctaBar.classList.toggle('is-visible', pastHero);
     ticking = false;
@@ -1722,3 +1733,4 @@
   });
 })();
 </script>
+</html>
