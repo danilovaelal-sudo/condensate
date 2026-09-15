@@ -146,6 +146,7 @@
     border-bottom:1px solid var(--line);
   }
   .header-inner{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  @media (max-width:640px){ .header-inner{height:64px;} }
   .logo{font-weight:800;font-size:1.15rem;letter-spacing:-.02em;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:8px;}
   .logo .dot{color:var(--accent);}
   nav.mainnav{display:flex;align-items:center;gap:var(--sp-8);}
@@ -173,7 +174,6 @@
   .hero-scrim{position:absolute;inset:0;
     background:linear-gradient(180deg, rgba(7,9,15,.18) 0%, rgba(7,9,15,.28) 42%, rgba(7,9,15,.92) 100%);}
   .hero-content{position:relative;z-index:1;padding-top:var(--sp-24);padding-bottom:var(--sp-16);color:#fff;}
-  @media (max-width:640px){ .hero-content{padding-top:var(--sp-20);padding-bottom:var(--sp-10);} }
   .hero-content h1{color:#fff;}
   .hero-content .sub{color:rgba(255,255,255,.86);}
   .hero-content .btn-ghost{color:#fff;border-color:rgba(255,255,255,.42);}
@@ -193,6 +193,13 @@
 
   .hero h1{font-size:var(--fs-h1);line-height:1.05;max-width:16ch;}
   .hero .sub{font-size:var(--fs-md);max-width:52ch;margin-top:var(--sp-5);line-height:1.5;}
+  @media (max-width:640px){
+    .hero-content{padding-top:var(--sp-12);padding-bottom:var(--sp-8);}
+    .hero-badge-row{margin-bottom:var(--sp-4);}
+    .hero h1{font-size:2rem;max-width:15ch;}
+    .hero .sub{margin-top:var(--sp-3);}
+    .hero-cta-row{margin-top:var(--sp-6);}
+  }
   .hero-cta-row{display:flex;flex-wrap:wrap;gap:var(--sp-4);margin-top:var(--sp-8);align-items:center;}
   .hero-stats{border-bottom:1px solid var(--line);}
   .stat-strip{
@@ -647,7 +654,7 @@
           <span class="patent-chip"><svg class="patent-seal" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12"/></svg>Патент РФ · RU 2 862 761 C1</span>
         </div>
         <h1>Система удаления конденсата для сплит&#8209;систем без слива воды на фасад</h1>
-        <p class="sub">Конденсат направляется на теплообменник наружного блока, равномерно распределяется по его поверхности и испаряется под действием тепла и воздушного потока.</p>
+        <p class="sub">Конденсат остаётся внутри кондиционера и испаряется сам - автоматически, без слива и ручной откачки.</p>
         <div class="hero-cta-row">
           <button class="btn btn-primary js-open-modal js-magnetic" data-kit="base">Заказать комплект</button>
           <a href="#video" class="btn btn-ghost">Как это работает ↓</a>
@@ -806,6 +813,43 @@
         <h4>Это не распылитель</h4>
         <p>Распылитель выбрасывает капли конденсата наружу через форсунки, подверженные загрязнению и непогоде. В этой системе вода подаётся непосредственно на теплообменник и остаётся внутри рабочего контура наружного блока, пока не испарится.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Стоимость комплекта</h2>
+      </div>
+      <div class="price-grid price-grid-single reveal">
+        <div class="price-card price-card-single">
+          <div class="price-kicker">Комплект «Конденсат»</div>
+          <div class="price-num">14 990 <sup>₽</sup></div>
+          <ul class="price-feats">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Основная и капиллярные трубки</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Провода для подключения</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Гидрофильный материал</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Рабочий диапазон 0…+50&nbsp;°C</li>
+          </ul>
+          <button class="btn btn-primary js-open-modal" data-kit="base">Заказать комплект</button>
+          <p class="price-footnote" style="text-align:left;margin-top:var(--sp-5);">Зимняя комплектация (до −35 °C) - доступна по дополнительному запросу, отметьте в заявке. Дренажный насос закупается отдельно и не входит в стоимость.</p>
+        </div>
+      </div>
+      <div class="sprayer-note reveal">
+        <h4>Доставка и оплата</h4>
+        <p>По всей России, бесплатно - доставку оплачивает продавец. Срок - по тарифам транспортной компании СДЭК. Оплата картой или безналичным расчётом для организаций.</p>
+      </div>
+      <div class="sprayer-note reveal">
+        <h4>Гарантия и возврат</h4>
+        <p>Гарантия на комплект - 3 года. Товар с браком - заберём и отправим замену, все пересылки за счёт продавца. Товар без брака (не подошёл, передумали) можно вернуть в течение 30 дней после получения, доставку возврата оплачивает продавец.</p>
+      </div>
+
+      <div class="pro-link">
+        <p>Устанавливаете кондиционеры профессионально?</p>
+        <button class="btn btn-ghost js-open-modal" data-kit="base" data-org="1">Заявка для монтажной организации →</button>
+      </div>
+      <p class="pricing-source">Фон: комплект «Конденсат»</p>
     </div>
   </section>
 
@@ -1077,43 +1121,6 @@
     </div>
   </section>
 
-  <!-- ============ PRICING ============ -->
-  <section id="pricing">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>Стоимость комплекта</h2>
-      </div>
-      <div class="price-grid price-grid-single reveal">
-        <div class="price-card price-card-single">
-          <div class="price-kicker">Комплект «Конденсат»</div>
-          <div class="price-num">14 990 <sup>₽</sup></div>
-          <ul class="price-feats">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Основная и капиллярные трубки</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Провода для подключения</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Гидрофильный материал</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Рабочий диапазон 0…+50&nbsp;°C</li>
-          </ul>
-          <button class="btn btn-primary js-open-modal" data-kit="base">Заказать комплект</button>
-          <p class="price-footnote" style="text-align:left;margin-top:var(--sp-5);">Зимняя комплектация (до −35 °C) - доступна по дополнительному запросу, отметьте в заявке. Дренажный насос закупается отдельно и не входит в стоимость.</p>
-        </div>
-      </div>
-      <div class="sprayer-note reveal">
-        <h4>Доставка и оплата</h4>
-        <p>По всей России, бесплатно - доставку оплачивает продавец. Срок - по тарифам транспортной компании СДЭК. Оплата картой или безналичным расчётом для организаций.</p>
-      </div>
-      <div class="sprayer-note reveal">
-        <h4>Гарантия и возврат</h4>
-        <p>Гарантия на комплект - 3 года. Товар с браком - заберём и отправим замену, все пересылки за счёт продавца. Товар без брака (не подошёл, передумали) можно вернуть в течение 30 дней после получения, доставку возврата оплачивает продавец.</p>
-      </div>
-
-      <div class="pro-link">
-        <p>Устанавливаете кондиционеры профессионально?</p>
-        <button class="btn btn-ghost js-open-modal" data-kit="base" data-org="1">Заявка для монтажной организации →</button>
-      </div>
-      <p class="pricing-source">Фон: комплект «Конденсат»</p>
-    </div>
-  </section>
-
   <!-- ============ FAQ / OBJECTIONS ============ -->
   <section id="faq" style="border-bottom:none;">
     <div class="container">
@@ -1180,7 +1187,7 @@
         <div class="footer-col">
           <h5>Реквизиты</h5>
           <span style="display:block;font-size:var(--fs-sm);color:var(--ink-soft);padding-block:4px;">ИП Кокшаров Никита Игоревич<br>ОГРНИП 324527500008110<br>ИНН 521405663773<br>г. Дзержинск, ул. Панфиловцев, 9, кв. 117</span>
-          <a href="tel:+79103962295">+7 910 396-72-95</a>
+          <a href="tel:+79103962295">+7 910 396-22-95</a>
           <a href="mailto:Condensate.tech@yandex.ru">Condensate.tech@yandex.ru</a>
         </div>
       </div>
