@@ -173,6 +173,7 @@
   @media (prefers-reduced-motion: reduce){ .hero-photo{animation:none;} }
   .hero-scrim{position:absolute;inset:0;
     background:linear-gradient(180deg, rgba(7,9,15,.18) 0%, rgba(7,9,15,.28) 42%, rgba(7,9,15,.92) 100%);}
+  .hero-media-cap{position:absolute;right:var(--sp-4);top:var(--sp-4);z-index:1;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:rgba(255,255,255,.75);background:rgba(7,9,15,.35);padding:4px 10px;border-radius:100px;}
   .hero-content{position:relative;z-index:1;padding-top:var(--sp-24);padding-bottom:var(--sp-16);color:#fff;}
   .hero-content h1{color:#fff;}
   .hero-content .sub{color:rgba(255,255,255,.86);}
@@ -244,8 +245,8 @@
   .photo-break figcaption{margin-top:var(--sp-3);font-size:var(--fs-sm);color:var(--ink-soft);text-align:center;}
 
   /* ============ SECTION SHELL ============ */
-  section{padding-block:var(--sp-24);border-bottom:1px solid var(--line);}
-  section.tight{padding-block:var(--sp-16);}
+  section{padding-block:72px;border-bottom:1px solid var(--line);}
+  section.tight{padding-block:var(--sp-12);}
   .section-head{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-4);margin-bottom:var(--sp-12);}
   .section-head h2{font-size:var(--fs-h2);max-width:18ch;}
   .section-head .lead{color:var(--ink-soft);max-width:56ch;font-size:var(--fs-md);margin-top:var(--sp-2);}
@@ -647,6 +648,7 @@
         <img class="hero-photo" src="assets/img/hero-device.jpg" alt="Наружный блок кондиционера с установленной системой «Конденсат»: медная трубка в гидрофильном материале на теплообменнике" width="1672" height="941">
       </div>
       <div class="hero-scrim" aria-hidden="true"></div>
+      <span class="hero-media-cap">Визуализация</span>
     </div>
 
     <div class="container hero-content">
@@ -665,10 +667,10 @@
   <div class="hero-stats">
     <div class="container">
       <div class="stat-strip">
-        <div class="stat"><div class="stat-num">35 дБ</div><div class="stat-label">уровень шума, не более</div></div>
+        <div class="stat"><div class="stat-num">14 990 ₽</div><div class="stat-label">комплект, без насоса и монтажа</div></div>
         <div class="stat"><div class="stat-num">0…+50°C</div><div class="stat-label">рабочий диапазон комплекта</div></div>
         <div class="stat"><div class="stat-num">1,5 кг</div><div class="stat-label">вес полного комплекта</div></div>
-        <div class="stat"><div class="stat-num">IPX4</div><div class="stat-label">защита от водяных брызг</div></div>
+        <div class="stat"><div class="stat-num">3 года</div><div class="stat-label">гарантия на комплект</div></div>
       </div>
     </div>
   </div>
@@ -685,7 +687,7 @@
           <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </button>
       </div>
-      <p class="video-caption">Как работает система «Конденсат» - 35 секунд</p>
+      <p class="video-caption">Как работает система «Конденсат» - 35 секунд · анимированная схема принципа работы</p>
     </div>
   </section>
 
@@ -804,7 +806,7 @@
           <div class="step-card" data-step="4">
             <div class="step-num">05</div><p>Вода испаряется под действием тепла теплообменника и потока воздуха от вентилятора.</p>
             <button class="step-more" aria-expanded="false">Подробнее<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
-            <div class="step-detail"><div class="step-detail-inner"><p>Заодно снижается тепловая нагрузка на теплообменник и повышается КПД наружного блока. При отрицательных температурах камера, помпа и трубки дополнительно оснащаются греющим кабелем.</p></div></div>
+            <div class="step-detail"><div class="step-detail-inner"><p>Равномерное распределение воды по теплообменнику помогает использовать тепло и воздушный поток наружного блока для испарения конденсата. При отрицательных температурах камера, помпа и трубки дополнительно оснащаются греющим кабелем.</p></div></div>
           </div>
         </div>
       </div>
@@ -826,6 +828,7 @@
         <div class="price-card price-card-single">
           <div class="price-kicker">Комплект «Конденсат»</div>
           <div class="price-num">14 990 <sup>₽</sup></div>
+          <p style="font-size:var(--fs-sm);color:var(--ink-soft);margin-top:var(--sp-2);">Стоимость комплекта без насоса и монтажа - их подбирает и оценивает монтажная организация под вашу технику.</p>
           <ul class="price-feats">
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Основная и капиллярные трубки</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Провода для подключения</li>
@@ -876,7 +879,7 @@
     <div class="container">
       <figure class="photo-break reveal">
         <img src="assets/img/device-detail.jpg" alt="Трубка в гидрофильном материале на рёбрах теплообменника крупным планом" loading="lazy" width="1536" height="1024">
-        <figcaption>Гидрофильный материал на трубке-испарителе распределяет воду по рёбрам теплообменника</figcaption>
+        <figcaption>Визуализация: гидрофильный материал на трубке-испарителе распределяет воду по рёбрам теплообменника</figcaption>
       </figure>
     </div>
   </section>
@@ -986,7 +989,7 @@
     <div class="container">
       <figure class="photo-break reveal">
         <img src="assets/img/device-angle.jpg" alt="Наружный блок кондиционера с установленной системой «Конденсат»" loading="lazy" width="1536" height="1024">
-        <figcaption>Система устанавливается внутри корпуса наружного блока - снаружи изменений не видно</figcaption>
+        <figcaption>Визуализация: система устанавливается внутри корпуса наружного блока - снаружи изменений не видно</figcaption>
       </figure>
     </div>
   </section>
@@ -1036,7 +1039,7 @@
 
       <figure class="kit-photo kit-photo-full reveal">
         <img src="assets/img/kit-parts.jpg" alt="Детали комплекта «Конденсат» с подписями: медные трубки, дренажная трубка, соединительный провод, гидрофильный материал, дренажная помпа Caspia Tube, поплавковая камера" loading="lazy" width="1536" height="1024">
-        <figcaption>Комплект «Конденсат» в деталях. Помпа Caspia Tube и поплавковая камера показаны в сборе - помпа оплачивается отдельно от комплекта</figcaption>
+        <figcaption>Визуализация комплектации. Помпа Caspia Tube и поплавковая камера показаны в сборе - помпа оплачивается отдельно от комплекта</figcaption>
       </figure>
 
       <div class="kit-cols reveal">
@@ -1147,7 +1150,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>Что будет зимой, при отрицательной температуре?</span><span class="faq-plus" aria-hidden="true"></span></button>
-          <div class="faq-a"><div class="faq-a-inner"><p>Конденсат образуется только в режиме охлаждения, а охлаждение при минусовой температуре на улице производители кондиционеров, как правило, не рекомендуют без специального оборудования. Зимой, когда кондиционер работает на обогрев, конденсата не образуется вовсе. Если охлаждение всё же нужно круглый год независимо от погоды (например, в серверной или техническом помещении) - для этого предусмотрена зимняя комплектация: греющий модуль расширяет диапазон системы до −35&nbsp;°C. Доступна по запросу - отметьте это в заявке.</p></div></div>
+          <div class="faq-a"><div class="faq-a-inner"><p>Система предназначена для удаления конденсата, который образуется во внутреннем блоке кондиционера при работе на охлаждение, - а охлаждение при минусовой температуре на улице производители кондиционеров, как правило, не рекомендуют без специального оборудования. В режиме обогрева процессы на наружном блоке имеют другую природу и не относятся к задаче системы. Если охлаждение всё же нужно круглый год независимо от погоды (например, в серверной или техническом помещении) - для этого предусмотрена зимняя комплектация: греющий модуль расширяет диапазон системы до −35&nbsp;°C. Доступна по запросу - отметьте это в заявке.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>Что если товар не подошёл или пришёл с браком?</span><span class="faq-plus" aria-hidden="true"></span></button>
@@ -1187,7 +1190,7 @@
         <div class="footer-col">
           <h5>Реквизиты</h5>
           <span style="display:block;font-size:var(--fs-sm);color:var(--ink-soft);padding-block:4px;">ИП Кокшаров Никита Игоревич<br>ОГРНИП 324527500008110<br>ИНН 521405663773<br>г. Дзержинск, ул. Панфиловцев, 9, кв. 117</span>
-          <a href="tel:+79103962295">+7 910 396-22-95</a>
+          <a href="tel:+79103962295" onclick="if(typeof ym==='function'){ym(112427671,'reachGoal','phone_click');}">+7 910 396-22-95</a>
           <a href="mailto:Condensate.tech@yandex.ru">Condensate.tech@yandex.ru</a>
         </div>
       </div>
@@ -1460,6 +1463,11 @@
 (function(){
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---- Yandex.Metrika goals ---- */
+  function ymGoal(name){
+    if (typeof window.ym === 'function') { window.ym(112427671, 'reachGoal', name); }
+  }
+
   /* ---- scroll progress + back to top ---- */
   var progress = document.getElementById('scroll-progress');
   var toTop = document.getElementById('to-top');
@@ -1490,6 +1498,15 @@
     reveals.forEach(function(el){ io.observe(el); });
   } else {
     reveals.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ---- price section viewed goal ---- */
+  var pricingSection = document.getElementById('pricing');
+  if (pricingSection && 'IntersectionObserver' in window) {
+    var priceIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ ymGoal('price_view'); priceIo.unobserve(en.target); } });
+    }, {threshold:.3});
+    priceIo.observe(pricingSection);
   }
 
   /* ---- hero parallax ---- */
@@ -1632,6 +1649,7 @@
       videoFrame.classList.add('is-playing');
       principleVideo.setAttribute('controls', '');
       principleVideo.play();
+      ymGoal('video_play');
     });
   }
 
@@ -1676,7 +1694,7 @@
   }
   function closeOrderModal(){ orderModal.classList.remove('is-open'); document.body.style.overflow=''; }
   document.querySelectorAll('.js-open-modal').forEach(function(b){
-    b.addEventListener('click', function(){ openOrderModal(b.getAttribute('data-kit'), b.getAttribute('data-org')); });
+    b.addEventListener('click', function(){ openOrderModal(b.getAttribute('data-kit'), b.getAttribute('data-org')); ymGoal('open_form'); });
   });
   orderModal.querySelector('.js-close-modal').addEventListener('click', closeOrderModal);
   orderModal.addEventListener('click', function(e){ if(e.target===orderModal) closeOrderModal(); });
@@ -1693,7 +1711,20 @@
     var checked = document.getElementById('f-org').checked;
     document.getElementById('org-field').classList.toggle('is-visible', checked);
   }
-  document.getElementById('f-org').addEventListener('change', toggleOrgField);
+  document.getElementById('f-org').addEventListener('change', function(){
+    toggleOrgField();
+    if (this.checked) ymGoal('org_select');
+  });
+
+  var winterBox = orderForm.querySelector('input[name="winter_kit"]');
+  if (winterBox) {
+    winterBox.addEventListener('change', function(){ if (this.checked) ymGoal('winter_kit_select'); });
+  }
+
+  var formStarted = false;
+  orderForm.addEventListener('input', function(){
+    if (!formStarted) { formStarted = true; ymGoal('form_start'); }
+  });
 
   var formError = document.getElementById('form-error');
   orderForm.addEventListener('submit', function(e){
@@ -1711,6 +1742,7 @@
       if (!data.success) throw new Error(data.message || 'submit failed');
       orderForm.classList.add('is-hidden');
       modalSuccess.classList.add('is-visible');
+      ymGoal('form_submit');
     }).catch(function(){
       formError.hidden = false;
     }).finally(function(){
