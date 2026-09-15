@@ -221,12 +221,10 @@
   .video-caption{margin-top:var(--sp-5);text-align:center;color:var(--ink-soft);font-size:var(--fs-sm);}
   @media (max-width:640px){ .video-play svg{width:58px;height:58px;padding:10px;} }
 
-  /* ============ PHOTO BAND ============ */
-  .photo-band{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6);}
-  .photo-band figure{margin:0;}
-  .photo-band img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:var(--radius-md);border:1px solid var(--line);}
-  .photo-band figcaption{margin-top:var(--sp-3);font-size:var(--fs-sm);color:var(--ink-soft);}
-  @media (max-width:760px){ .photo-band{grid-template-columns:1fr;} }
+  /* ============ PHOTO BREAK ============ */
+  .photo-break{margin:0 auto;max-width:840px;}
+  .photo-break img{width:100%;height:auto;display:block;border-radius:var(--radius-md);border:1px solid var(--line);}
+  .photo-break figcaption{margin-top:var(--sp-3);font-size:var(--fs-sm);color:var(--ink-soft);text-align:center;}
 
   /* ============ SECTION SHELL ============ */
   section{padding-block:var(--sp-24);border-bottom:1px solid var(--line);}
@@ -361,9 +359,10 @@
   .stat-tile .big{font-family:var(--font-mono);font-weight:700;font-size:2.2rem;font-variant-numeric:tabular-nums;}
   .stat-tile .cap{font-size:12px;color:var(--ink-soft);margin-top:6px;}
 
-  .kit-photo{margin:var(--sp-8) 0 0;}
-  .kit-photo img{width:100%;max-height:520px;object-fit:cover;display:block;border-radius:var(--radius-md);border:1px solid var(--line);}
+  .kit-photo{margin:var(--sp-8) 0 0;max-width:640px;}
+  .kit-photo img{width:100%;height:auto;display:block;border-radius:var(--radius-md);border:1px solid var(--line);}
   .kit-photo figcaption{margin-top:var(--sp-3);font-size:var(--fs-sm);color:var(--ink-soft);}
+  .kit-photo + .kit-photo{margin-top:var(--sp-6);}
   .kit-cols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--sp-12);margin-top:var(--sp-10);}
   @media (max-width:900px){ .kit-cols{grid-template-columns:minmax(0,1fr);} }
   .kit-col-h{font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);margin-bottom:var(--sp-4);}
@@ -811,19 +810,13 @@
     </div>
   </section>
 
-  <!-- ============ PHOTO BAND ============ -->
-  <section id="gallery" class="tight">
+  <!-- ============ PHOTO BREAK: DETAIL ============ -->
+  <section id="gallery-1" class="tight">
     <div class="container">
-      <div class="photo-band reveal">
-        <figure>
-          <img src="assets/img/device-angle.jpg" alt="Наружный блок кондиционера с установленной системой «Конденсат», вид сверху" loading="lazy" width="1536" height="1024">
-          <figcaption>Система устанавливается внутри корпуса наружного блока - снаружи изменений не видно</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/img/device-detail.jpg" alt="Трубка в гидрофильном материале на рёбрах теплообменника крупным планом" loading="lazy" width="1536" height="1024">
-          <figcaption>Гидрофильный материал на трубке-испарителе распределяет воду по рёбрам теплообменника</figcaption>
-        </figure>
-      </div>
+      <figure class="photo-break reveal">
+        <img src="assets/img/device-detail.jpg" alt="Трубка в гидрофильном материале на рёбрах теплообменника крупным планом" loading="lazy" width="1536" height="1024">
+        <figcaption>Гидрофильный материал на трубке-испарителе распределяет воду по рёбрам теплообменника</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -927,6 +920,16 @@
     </div>
   </section>
 
+  <!-- ============ PHOTO BREAK: INSTALLED ============ -->
+  <section id="gallery-2" class="tight">
+    <div class="container">
+      <figure class="photo-break reveal">
+        <img src="assets/img/device-angle.jpg" alt="Наружный блок кондиционера с установленной системой «Конденсат»" loading="lazy" width="1536" height="1024">
+        <figcaption>Система устанавливается внутри корпуса наружного блока - снаружи изменений не видно</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- ============ AUDIENCE ============ -->
   <section id="audience">
     <div class="container">
@@ -955,6 +958,15 @@
     </div>
   </section>
 
+  <!-- ============ PHOTO BREAK: WIDE ============ -->
+  <section id="gallery-3" class="tight">
+    <div class="container">
+      <figure class="photo-break reveal">
+        <img src="assets/img/device-wide.jpg" alt="Наружный блок кондиционера в разрезе - вид на теплообменник, трубки и компрессор" loading="lazy" width="1536" height="1024">
+      </figure>
+    </div>
+  </section>
+
   <!-- ============ KIT + SPECS ============ -->
   <section id="kit">
     <div class="container">
@@ -973,6 +985,11 @@
       <figure class="kit-photo reveal">
         <img src="assets/img/kit-box.jpg" alt="Комплект «Конденсат»: трубки, провода, гидрофильный материал и дренажная помпа Caspia Tube" loading="lazy" width="1536" height="1024">
         <figcaption>Комплект «Конденсат» - с рекомендованной производителем помпой Caspia Tube на фото; в стоимость комплекта помпа не входит</figcaption>
+      </figure>
+
+      <figure class="kit-photo reveal">
+        <img src="assets/img/kit-parts.jpg" alt="Детали комплекта «Конденсат» с подписями: медные трубки, дренажная трубка, соединительный провод, гидрофильный материал, дренажная помпа Caspia Tube, поплавковая камера" loading="lazy" width="1536" height="1024">
+        <figcaption>Детали комплекта крупным планом. Поплавковая камера и помпа показаны в сборе - помпа оплачивается отдельно</figcaption>
       </figure>
 
       <div class="kit-cols reveal">
