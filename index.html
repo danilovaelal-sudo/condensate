@@ -908,9 +908,17 @@
       </div>
 
       <div class="kit-cols reveal">
-        <div>
+        <div class="specs-toggle-wrap">
           <h4 class="kit-col-h">Комплектация</h4>
-          <div class="table-scroll">
+          <ul class="price-feats" style="margin-top:0;">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Основная и капиллярные трубки</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Провода для подключения</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Гидрофильный материал</li>
+          </ul>
+          <p style="font-size:var(--fs-sm);color:var(--ink-soft);margin-top:var(--sp-3);">Дренажный насос в комплект не входит - закупается отдельно под вашу модель кондиционера.</p>
+          <button class="step-more" id="kit-table-toggle" aria-expanded="false">Показать точные параметры<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="step-detail" id="kit-table-detail"><div class="step-detail-inner">
+          <div class="table-scroll" style="margin-top:var(--sp-4);">
           <table class="spec-table">
             <thead><tr><th>Элемент</th><th>Параметры</th></tr></thead>
             <tbody>
@@ -923,6 +931,7 @@
             </tbody>
           </table>
           </div>
+          </div></div>
         </div>
         <div class="specs-toggle-wrap">
           <h4 class="kit-col-h">Характеристики</h4>
@@ -1026,8 +1035,8 @@
       </div>
       <div class="faq-list reveal">
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>Это реально работает, или маркетинговый ход?</span><span class="faq-plus" aria-hidden="true"></span></button>
-          <div class="faq-a"><div class="faq-a-inner"><p>Способ запатентован - патент РФ RU 2 862 761 C1, официально зарегистрированное изобретение, не эксперимент и не гипотеза. Полная схема работы - в разделе «Принцип работы» выше.</p></div></div>
+          <button class="faq-q" aria-expanded="false"><span>Нужно ли что-то делать самому после установки?</span><span class="faq-plus" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Нет. Система работает автоматически - датчик сам включает и выключает помпу. Единственное, что требуется, - проверка при плановом ТО кондиционера, не реже раза в полгода, вместе с остальными узлами.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>Не повредит ли это кондиционер и не слетит ли его гарантия?</span><span class="faq-plus" aria-hidden="true"></span></button>
@@ -1044,10 +1053,6 @@
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>Что если товар не подошёл или пришёл с браком?</span><span class="faq-plus" aria-hidden="true"></span></button>
           <div class="faq-a"><div class="faq-a-inner"><p>Брак - заберём и отправим замену за счёт продавца. Не подошёл без брака - можно вернуть в течение 30 дней, доставку возврата оплачивает продавец. Подробности - в разделе «Гарантия и возврат» выше.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>Можно ли доверять продавцу?</span><span class="faq-plus" aria-hidden="true"></span></button>
-          <div class="faq-a"><div class="faq-a-inner"><p>Продаёт официально зарегистрированный ИП, реквизиты - в подвале сайта. Способ защищён патентом РФ, орган регистрации - Роспатент, дата и номер патента указаны в разделе выше.</p></div></div>
         </div>
       </div>
     </div>
@@ -1311,6 +1316,16 @@
       var open = specsToggle.parentElement.classList.toggle('is-open');
       specsToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       specsToggle.firstChild.textContent = open ? 'Свернуть характеристики' : 'Показать все характеристики';
+    });
+  }
+
+  /* ---- kit table toggle ---- */
+  var kitTableToggle = document.getElementById('kit-table-toggle');
+  if (kitTableToggle) {
+    kitTableToggle.addEventListener('click', function(){
+      var open = kitTableToggle.parentElement.classList.toggle('is-open');
+      kitTableToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      kitTableToggle.firstChild.textContent = open ? 'Свернуть параметры' : 'Показать точные параметры';
     });
   }
 
