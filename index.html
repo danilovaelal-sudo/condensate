@@ -204,7 +204,7 @@
   .hero-cta-row{display:flex;flex-wrap:wrap;gap:var(--sp-4);margin-top:var(--sp-8);align-items:center;}
   .hero-stats{border-bottom:1px solid var(--line);}
   .stat-strip{
-    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+    display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
     border-top:1px solid var(--line);
   }
   .stat-strip .stat{
@@ -214,9 +214,10 @@
   .stat-strip .stat:last-child{border-right:none;}
   .stat-num{font-family:var(--font-mono);font-weight:700;font-size:1.7rem;font-variant-numeric:tabular-nums;color:var(--ink);}
   .stat-label{font-size:12px;color:var(--ink-soft);margin-top:4px;}
+  @media (max-width:900px){ .stat-strip{grid-template-columns:repeat(3,minmax(0,1fr));} .stat-strip .stat:nth-child(3n){border-right:none;} }
   @media (max-width:760px){
     .stat-strip{grid-template-columns:repeat(2,minmax(0,1fr));}
-    .stat-strip .stat:nth-child(2){border-right:none;}
+    .stat-strip .stat:nth-child(2n){border-right:none;}
   }
 
   /* ============ VIDEO ============ */
@@ -679,6 +680,7 @@
         <div class="stat"><div class="stat-num">−35…+50°C</div><div class="stat-label">диапазон с зимней комплектацией</div></div>
         <div class="stat"><div class="stat-num">1,5 кг</div><div class="stat-label">вес полного комплекта</div></div>
         <div class="stat"><div class="stat-num">3 года</div><div class="stat-label">гарантия на комплект</div></div>
+        <div class="stat"><div class="stat-num">+20%</div><div class="stat-label">производительность наружного блока</div></div>
       </div>
     </div>
   </div>
@@ -864,7 +866,6 @@
         <p>Устанавливаете кондиционеры профессионально?</p>
         <button class="btn btn-ghost js-open-modal" data-kit="base" data-org="1">Заявка для монтажной организации →</button>
       </div>
-      <p class="pricing-source">Фон: комплект «Конденсат»</p>
     </div>
   </section>
 
