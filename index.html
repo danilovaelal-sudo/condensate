@@ -329,7 +329,7 @@
   .adv-icon{width:28px;height:28px;color:var(--accent);flex:none;}
   .adv-card h4{font-size:1rem;margin-top:var(--sp-4);}
   .adv-card p{font-size:var(--fs-sm);color:var(--ink-soft);}
-  .adv-card .adv-detail{color:var(--ink-faint);}
+  .adv-card .adv-detail{color:var(--ink-soft);}
 
   /* ============ COMPARISON ============ */
   .compare-list{border-top:1px solid var(--line);}
@@ -1204,7 +1204,7 @@
   <div class="modal">
     <button class="modal-close js-close-modal" aria-label="Закрыть"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
 
-    <form class="modal-form" id="order-form">
+    <form class="modal-form" id="order-form" method="POST" action="https://api.web3forms.com/submit">
       <input type="hidden" name="access_key" value="a63ebc7e-c02a-4f72-b3c5-14c7e3e2350d">
       <input type="hidden" name="subject" value="Новая заявка с сайта «Конденсат»">
       <input type="hidden" name="from_name" value="Сайт condensate.tech">
