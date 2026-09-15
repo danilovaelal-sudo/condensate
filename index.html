@@ -856,8 +856,8 @@
         <div class="adv-card">
           <svg class="adv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M4.5 6l15 12M19.5 6l-15 12"/></svg>
           <h4>Для разных климатов</h4>
-          <p>В разработке зимняя комплектация - с ней система рассчитана на работу при температуре до −35&nbsp;°C.</p>
-          <p class="adv-detail">Греющий кабель и изоляция на поплавковой камере, помпе и трубках должны сохранять работоспособность системы в сильные морозы. Комплектация уточняется у производителя и временно недоступна для заказа.</p>
+          <p>Зимняя комплектация - дополнительно, по запросу - расширяет рабочий диапазон системы до −35&nbsp;°C.</p>
+          <p class="adv-detail">Греющий кабель и изоляция на поплавковой камере, помпе и трубках сохраняют работоспособность системы в сильные морозы. Нужна в основном для помещений, где охлаждение требуется круглый год независимо от погоды - отметьте это в заявке.</p>
         </div>
         <div class="adv-card">
           <svg class="adv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
@@ -1077,7 +1077,7 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Рабочий диапазон 0…+50&nbsp;°C</li>
           </ul>
           <button class="btn btn-primary js-open-modal" data-kit="base">Заказать комплект</button>
-          <p class="price-footnote" style="text-align:left;margin-top:var(--sp-5);">Зимняя комплектация временно недоступна для заказа - уточняется у производителя. Дренажный насос закупается отдельно и не входит в стоимость.</p>
+          <p class="price-footnote" style="text-align:left;margin-top:var(--sp-5);">Зимняя комплектация (до −35 °C) - доступна по дополнительному запросу, отметьте в заявке. Дренажный насос закупается отдельно и не входит в стоимость.</p>
         </div>
       </div>
       <div class="sprayer-note reveal">
@@ -1120,6 +1120,10 @@
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>Кто устанавливает и подойдёт ли к моей модели?</span><span class="faq-plus" aria-hidden="true"></span></button>
           <div class="faq-a"><div class="faq-a-inner"><p>Монтаж - специализированная организация, она же подтверждает совместимость с конкретной моделью при осмотре объекта. Система рассчитана на бытовые и полупромышленные сплит- и мультисплит-системы разных производителей.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Что будет зимой, при отрицательной температуре?</span><span class="faq-plus" aria-hidden="true"></span></button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Конденсат образуется только в режиме охлаждения, а охлаждение при минусовой температуре на улице производители кондиционеров, как правило, не рекомендуют без специального оборудования. Зимой, когда кондиционер работает на обогрев, конденсата не образуется вовсе. Если охлаждение всё же нужно круглый год независимо от погоды (например, в серверной или техническом помещении) - для этого предусмотрена зимняя комплектация: греющий модуль расширяет диапазон системы до −35&nbsp;°C. Доступна по запросу - отметьте это в заявке.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>Что если товар не подошёл или пришёл с браком?</span><span class="faq-plus" aria-hidden="true"></span></button>
@@ -1201,6 +1205,11 @@
         </div>
       </div>
       <div class="field"><label for="f-model">Марка / модель (если знаете)</label><input type="text" id="f-model" name="model" class="ym-disable-keys"></div>
+
+      <label class="checkline">
+        <input type="checkbox" name="winter_kit">
+        <span>Нужна зимняя комплектация (эксплуатация до −35 °C)</span>
+      </label>
 
       <label class="checkline">
         <input type="checkbox" id="f-org" name="is_org">
